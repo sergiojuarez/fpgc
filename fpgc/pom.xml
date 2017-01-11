@@ -6,8 +6,8 @@
   <artifactId>fpgc</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  
-  
+
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -22,18 +22,23 @@
 		<project.filename>fpgc</project.filename>
 		<log4j.dir>/opt/logs</log4j.dir>
 		<log4j.filename>fpgc</log4j.filename>
-		
+
 		<jstl.version>1.2</jstl.version>
 		<junit.version>4.11</junit.version>
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
-		
+
+		<pom.jdbc.driverClassName>oracle.jdbc.OracleDriver</pom.jdbc.driverClassName>
+		<pom.jdbc.url>jdbc:oracle:thin:@localhost:1521:xe</pom.jdbc.url>
+		<pom.jdbc.username>FPGC</pom.jdbc.username>
+		<pom.jdbc.password>FPGC</pom.jdbc.password>
+
 	</properties>
 	<modules>
 		<module>fpgc-core</module>
 		<module>fpgc-web</module>
 	</modules>
-	
+
 	<dependencies>
 		<!-- JACKSON -->
 		<dependency>
@@ -51,7 +56,7 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-    
+
 <!-- SLF4J usada porque optimiza los log4j -->
 	<dependency>
 		<groupId>org.slf4j</groupId>
@@ -133,9 +138,9 @@
 		<version>${junit.version}</version>
 		<scope>test</scope>
 	</dependency>
-		
+
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -152,7 +157,7 @@
 					<port>8080</port>
 					<clientAuth>want</clientAuth>
 					<httpsPort>8443</httpsPort>
-					<keystorePass>gen.key</keystorePass>
+					<keystorePass>PMedia</keystorePass>
 				</configuration>
 			</plugin>
 			<plugin>
