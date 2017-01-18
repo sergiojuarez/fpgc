@@ -14,40 +14,45 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd ">
 
 
-    <context:component-scan base-package="gob.mx.salud" />
-	<import resource="aop-beans.xml"/>
-	<import resource="applicationContext-persistence.xml"/>
+	<context:component-scan base-package="gob.mx.salud" />
+	<import resource="aop-beans.xml" />
+	<import resource="applicationContext-persistence.xml" />
 
 
-<!-- 	<bean -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-<!-- 		<property name="prefix"> -->
-<!-- 			<value>/WEB-INF/pages/</value> -->
-<!-- 		</property> -->
-<!-- 		<property name="suffix"> -->
-<!-- 			<value>.jsp</value> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
+	<!-- <bean -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+	<!-- <property name="prefix"> -->
+	<!-- <value>/WEB-INF/pages/</value> -->
+	<!-- </property> -->
+	<!-- <property name="suffix"> -->
+	<!-- <value>.jsp</value> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 
 
-<!-- 	<bean id="multipartResolver" -->
-<!-- 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
-<!-- 		<property name="maxUploadSize" value="20971520" /> -->
-<!-- 		<property name="maxInMemorySize" value="1048576" /> -->
-<!-- 	</bean> -->
+	<!-- <bean id="multipartResolver" -->
+	<!-- class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+	<!-- <property name="maxUploadSize" value="20971520" /> -->
+	<!-- <property name="maxInMemorySize" value="1048576" /> -->
+	<!-- </bean> -->
 
 
 
 	<!-- ************** UTILERIAS ************* -->
 
-<!-- 	<jaxws:client id="correoPortType" -->
-<!-- 		serviceClass="com.interacciones.corp.correo.v1_0.service.CorreoPortType" -->
-<!-- 		address="${sec.server.protocol}://${com.gfi.esbProxy.ip}/${ws-corp-correo}/correoService" /> -->
+	<!-- <jaxws:client id="correoPortType" -->
+	<!-- serviceClass="com.interacciones.corp.correo.v1_0.service.CorreoPortType" -->
+	<!-- address="${sec.server.protocol}://${com.gfi.esbProxy.ip}/${ws-corp-correo}/correoService"
+		/> -->
 
-<!-- 	<jaxws:client id="plantillaPortType" -->
-<!-- 		serviceClass="com.interacciones.inet.corp.plantilla.v1_0.service.PlantillaPortType" -->
-<!-- 		address="${sec.server.protocol}://${com.gfi.esbProxy.ip}/${ws-inet-corp-plantilla}/plantillaService" /> -->
+	<!-- <jaxws:client id="plantillaPortType" -->
+	<!-- serviceClass="com.interacciones.inet.corp.plantilla.v1_0.service.PlantillaPortType" -->
+	<!-- address="${sec.server.protocol}://${com.gfi.esbProxy.ip}/${ws-inet-corp-plantilla}/plantillaService"
+		/> -->
 
-<!-- < -->
+	<!-- < -->
+
+	<jaxws:client id="consultaFpgcPortType" serviceClass="mx.gob.cnpss_dgao.WspSoap"
+		address="http://www.cnpss-dgao.gob.mx/WSDGAO_GESTION/wsp.asmx" />
 
 </beans>
