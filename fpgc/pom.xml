@@ -29,6 +29,7 @@
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
 
 		<pom.jdbc.driverClassName>oracle.jdbc.OracleDriver</pom.jdbc.driverClassName>
+		<pom.jdbc.dataSourceClassName>oracle.jdbc.pool.OracleDataSource</pom.jdbc.dataSourceClassName>
 		<pom.jdbc.url>jdbc:oracle:thin:@localhost:1521:xe</pom.jdbc.url>
 		<pom.jdbc.username>FPGC</pom.jdbc.username>
 		<pom.jdbc.password>FPGC</pom.jdbc.password>

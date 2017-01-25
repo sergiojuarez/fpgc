@@ -18,16 +18,37 @@
 	</context:component-scan>
 
 	<!-- DATASOURCES -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName" value="${pom.jdbc.driverClassName}" />
-		<property name="url" value="${pom.jdbc.url}" />
-		<property name="username" value="${pom.jdbc.username}" />
-		<property name="password" value="${pom.jdbc.password}" />
+<!-- 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" -->
+<!-- 		destroy-method="close"> -->
+<!-- 		<property name="driverClassName" value="${pom.jdbc.driverClassName}" /> -->
+<!-- 		<property name="url" value="${pom.jdbc.url}" /> -->
+<!-- 		<property name="username" value="${pom.jdbc.username}" /> -->
+<!-- 		<property name="password" value="${pom.jdbc.password}" /> -->
 		<!-- <property name="removeAbandoned" value="true" /> -->
-		<property name="initialSize" value="5" />
-		<property name="maxActive" value="30" />
+<!-- 		<property name="initialSize" value="5" /> -->
+<!-- 		<property name="maxActive" value="30" /> -->
+<!-- 	</bean> -->
+
+
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+	<property name="poolName" value="springHikariCP" />
+	<property name="connectionTestQuery" value="SELECT 1" />
+	<property name="dataSourceClassName" value="${pom.jdbc.dataSourceClassName}" />
+	<property name="dataSourceProperties">
+		<props>
+			<prop key="url">${pom.jdbc.url}</prop>
+			<prop key="user">${pom.jdbc.username}</prop>
+			<prop key="password">${pom.jdbc.password}</prop>
+		</props>
+	</property>
+</bean>
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
 	</bean>
+
+
 
 
 	<!-- TRANSACTION MANAGER -->
