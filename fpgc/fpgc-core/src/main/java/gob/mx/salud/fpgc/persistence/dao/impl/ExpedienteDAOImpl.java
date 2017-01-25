@@ -26,11 +26,11 @@ public class ExpedienteDAOImpl implements ExpedienteDAO {
     @Override
     public long guardar(ExpedienteDTO dto) {
         int update = 0;
-        
+
         long id =  0L;
-        
+
         try {
-            
+
         	final StringBuilder sqlBuilder = new StringBuilder();
             sqlBuilder.append("INSERT INTO K_EXPEDIENTE( ");
             sqlBuilder.append("	FL_POLIZA, FL_PATOLOGIA, FL_SUBGRUPO_DIAGNOSTICO, ");
@@ -46,51 +46,55 @@ public class ExpedienteDAOImpl implements ExpedienteDAO {
             sqlBuilder.append("	:DS_PRIMERA_VALORACION, :DS_PRIMERA_ATENCION, ");
             sqlBuilder.append("	:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3, :ATRIBUTO4, :ATRIBUTO5, ");
             sqlBuilder.append("	:ATRIBUTO6, :ATRIBUTO7, :ATRIBUTO8, :ATRIBUTO9, :ATRIBUTO10) ");
-            
-            LOGGER.debug(dto.toString());           
-            
-            String atr1, atr2, atr3, atr4, atr5, atr6, atr7, atr8, atr9, atr10;
-                      
-            atr1 = dto.getAtributo1();
-            if (atr1.length() == 0)
-            	atr1 = null;
-            
-            atr2 = dto.getAtributo2();
-            if (atr2.length() == 0)
-            	atr2 = null;
-            
-            atr3 = dto.getAtributo3();
-            if (atr3.length() == 0)
-            	atr3 = null;
-            
-            atr4 = dto.getAtributo4();
-            if (atr4.length() == 0)
-            	atr4 = null;
-            
-            atr5 = dto.getAtributo5();
-            if (atr5.length() == 0)
-            	atr5 = null;            
-            
-            atr6 = dto.getAtributo6();
-            if (atr6.length() == 0)
-            	atr6 = null;
-            
-            atr7 = dto.getAtributo7();
-            if (atr7.length() == 0)
-            	atr7 = null;
-            
-            atr8 = dto.getAtributo8();
-            if (atr8.length() == 0)
-            	atr8 = null;
-            
-            atr9 = dto.getAtributo9();
-            if (atr9.length() == 0)
-            	atr9 = null;
-            
-            atr10 = dto.getAtributo10();
-            if (atr10.length() == 0)
-            	atr10 = null;             
-            
+
+            LOGGER.debug("dto antes fix : {}", dto);
+
+            dto.fixAttrs();
+
+            LOGGER.debug("dto despues fix : {}", dto);
+
+//            String atr1, atr2, atr3, atr4, atr5, atr6, atr7, atr8, atr9, atr10;
+//
+//            atr1 = dto.getAtributo1();
+//            if (atr1.length() == 0)
+//            	atr1 = null;
+//
+//            atr2 = dto.getAtributo2();
+//            if (atr2.length() == 0)
+//            	atr2 = null;
+//
+//            atr3 = dto.getAtributo3();
+//            if (atr3.length() == 0)
+//            	atr3 = null;
+//
+//            atr4 = dto.getAtributo4();
+//            if (atr4.length() == 0)
+//            	atr4 = null;
+//
+//            atr5 = dto.getAtributo5();
+//            if (atr5.length() == 0)
+//            	atr5 = null;
+//
+//            atr6 = dto.getAtributo6();
+//            if (atr6.length() == 0)
+//            	atr6 = null;
+//
+//            atr7 = dto.getAtributo7();
+//            if (atr7.length() == 0)
+//            	atr7 = null;
+//
+//            atr8 = dto.getAtributo8();
+//            if (atr8.length() == 0)
+//            	atr8 = null;
+//
+//            atr9 = dto.getAtributo9();
+//            if (atr9.length() == 0)
+//            	atr9 = null;
+//
+//            atr10 = dto.getAtributo10();
+//            if (atr10.length() == 0)
+//            	atr10 = null;
+
             final SqlParameterSource source = new MapSqlParameterSource()
                     .addValue("FL_POLIZA", dto.getFlPoliza())
                     .addValue("FL_PATOLOGIA", dto.getFlPatologia())
@@ -104,36 +108,36 @@ public class ExpedienteDAOImpl implements ExpedienteDAO {
                     .addValue("DS_COMENTARIOS", dto.getDsComentarios())
                     .addValue("DS_PRIMERA_VALORACION", dto.getDsPrimeraValoracion())
                     .addValue("DS_PRIMERA_ATENCION", dto.getDsPrimeraAtencion())
-                    .addValue("ATRIBUTO1", atr1)
-                    .addValue("ATRIBUTO2", atr2)
-                    .addValue("ATRIBUTO3", atr3)
-                    .addValue("ATRIBUTO4", atr4)
-                    .addValue("ATRIBUTO5", atr5)
-                    .addValue("ATRIBUTO6", atr6)
-                    .addValue("ATRIBUTO7", atr7)
-                    .addValue("ATRIBUTO8", atr8)
-                    .addValue("ATRIBUTO9", atr9)
-                    .addValue("ATRIBUTO10", atr10);
-            
+                    .addValue("ATRIBUTO1", dto.getAtributo1())
+                    .addValue("ATRIBUTO2", dto.getAtributo2())
+                    .addValue("ATRIBUTO3", dto.getAtributo3())
+                    .addValue("ATRIBUTO4", dto.getAtributo4())
+                    .addValue("ATRIBUTO5", dto.getAtributo5())
+                    .addValue("ATRIBUTO6", dto.getAtributo6())
+                    .addValue("ATRIBUTO7", dto.getAtributo7())
+                    .addValue("ATRIBUTO8", dto.getAtributo8())
+                    .addValue("ATRIBUTO9", dto.getAtributo9())
+                    .addValue("ATRIBUTO10", dto.getAtributo10());
+
             LOGGER.debug("El query: " + sqlBuilder.toString());
 
-            KeyHolder keyHolder = new GeneratedKeyHolder();                
+            KeyHolder keyHolder = new GeneratedKeyHolder();
             update = namedTemplate.update(sqlBuilder.toString(), source, keyHolder, new String[]{"FL_EXPEDIENTE"});
             id = keyHolder.getKey().longValue();
-                 
+
             LOGGER.debug("Nuevo registro: " + id);
-                                           
+
 
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage(), e);
         }
-        
+
         return id;
     }
-    
+
     @Override
-    public ExpedienteDTO getRegistro(ExpedienteDTO dto) { 
-        	
+    public ExpedienteDTO getRegistro(ExpedienteDTO dto) {
+
     	ExpedienteDTO expediente = null;
         try {
             final StringBuilder sqlBuilder = new StringBuilder();
@@ -147,17 +151,17 @@ public class ExpedienteDAOImpl implements ExpedienteDAO {
             sqlBuilder.append("	ATRIBUTO6, ATRIBUTO7, ATRIBUTO8, ATRIBUTO9, ATRIBUTO10 ");
             sqlBuilder.append("FROM k_expediente ");
             sqlBuilder.append("WHERE FL_EXPEDIENTE = :FL_EXPEDIENTE ");
-            
+
             final SqlParameterSource source = new MapSqlParameterSource("FL_EXPEDIENTE", dto.getFlExpediente());
             expediente = namedTemplate.queryForObject(sqlBuilder.toString(), source, new ExpedienteDTOMapper());
-            
+
             LOGGER.debug("Expediente: " + expediente.toString());
-            
+
         } catch (DataAccessException e) {
             LOGGER.error(e.getMessage(), e);
             expediente = new ExpedienteDTO();
         }
-        return expediente;    	
+        return expediente;
     }
 
 }

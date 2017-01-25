@@ -21,9 +21,9 @@ public class ExpedienteServiceImpl implements ExpedienteService {
     public Long guardar(ExpedienteDTO dto) {
         return expedienteDAO.guardar(dto);
     }
-    
+
     @Override
     public ExpedienteDTO getRegistro(ExpedienteDTO dto) {
         return expedienteDAO.getRegistro(dto);
-    }        
+    }
 }
