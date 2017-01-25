@@ -8,6 +8,9 @@
         <dependent-module archiveName="fpgc-core-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fpgc-core/fpgc-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="consultafpgc-cliente-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/consultafpgc-cliente/consultafpgc-cliente">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="fpgc"/>
         <property name="java-output-path" value="/fpgc-web/target/classes"/>
     </wb-module>
