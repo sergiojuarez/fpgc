@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<mapping>
+		<class-a>gob.mx.salud.fpgc.model.request.RequestExpediente</class-a>
+		<class-b>gob.mx.salud.fpgc.model.ExpedienteDTO</class-b>
+		<field>
+			<a>fl_expediente</a>
+			<b>flExpediente</b>
+		</field>
+		<field>
+			<a>fl_poliza</a>
+			<b>flPoliza</b>
+		</field>
+		<field>
+			<a>fl_patologia</a>
+			<b>flPatologia</b>
+		</field>
+		<field>
+			<a>fl_subgrupo_diagnostico</a>
+			<b>flSubgrupoDiagnostico</b>
+		</field>
+		<field>
+			<a>fl_subdiagnostico</a>
+			<b>flSubDiagnostico</b>
+		</field>
+		<field>
+			<a>fl_genotipo</a>
+			<b>flGenotipo</b>
+		</field>
+		<field>
+			<a>fl_clasificacion_ana</a>
+			<b>flClasificacionAna</b>
+		</field>
+		<field>
+			<a>fl_cie</a>
+			<b>flCie</b>
+		</field>
+		<field>
+			<a>fl_clasificacion_morfologica</a>
+			<b>flClasificacionMorfologica</b>
+		</field>
+		<field>
+			<a>fe_captacion</a>
+			<b>feCaptacion</b>
+		</field>
+		<field>
+			<a>ds_comentarios</a>
+			<b>dsComentarios</b>
+		</field>
+		<field>
+			<a>ds_primera_valoracion</a>
+			<b>dsPrimeraValoracion</b>
+		</field>
+		<field>
+			<a>ds_primera_atencion</a>
+			<b>dsPrimeraAtencion</b>
+		</field>
+		<field>
+			<a>atributo1</a>
+			<b>atributo1</b>
+		</field>
+		<field>
+			<a>atributo2</a>
+			<b>atributo2</b>
+		</field>
+		<field>
+			<a>atributo3</a>
+			<b>atributo3</b>
+		</field>
+		<field>
+			<a>atributo4</a>
+			<b>atributo4</b>
+		</field>
+		<field>
+			<a>atributo5</a>
+			<b>atributo5</b>
+		</field>
+		<field>
+			<a>atributo6</a>
+			<b>atributo6</b>
+		</field>
+		<field>
+			<a>atributo7</a>
+			<b>atributo7</b>
+		</field>
+		<field>
+			<a>atributo8</a>
+			<b>atributo8</b>
+		</field>
+		<field>
+			<a>atributo9</a>
+			<b>atributo9</b>
+		</field>
+		<field>
+			<a>atributo10</a>
+			<b>atributo10</b>
+		</field>
+	</mapping>
+
+	<!-- <mapping wildcard="false"> <class-a>org.dozer.vo.TestObjectFoo</class-a>
+		<class-b>org.dozer.vo.TestObjectFooPrime</class-b> <field> <a>oneFoo</a>
+		<b>oneFooPrime</b> </field> </mapping> -->
+
+</mappings>
